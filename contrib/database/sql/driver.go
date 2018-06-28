@@ -59,7 +59,7 @@ func (tp *traceParams) newChildSpanFromContext(ctx context.Context, resource str
 		tracer.ServiceName(tp.config.serviceName),
 	)
 	if query != "" {
-		resource = query
+		resource = resource + " " + query
 	}
 	span.SetTag(ext.ResourceName, resource)
 	for k, v := range tp.meta {
